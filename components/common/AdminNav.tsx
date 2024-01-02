@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
 import { IconType } from "react-icons";
+import { RiMenuFoldFill, RiMenuUnfoldFill } from "react-icons/ri";
 
-import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
 import Logo from "./Logo";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const NAV_OPEN_WIDTH = "w-60";
-const NAV_CLOSE_WIDTH = "w-20";
+const NAV_CLOSE_WIDTH = "w-12";
 const NAV_VISIBILITY = "nav-visibility";
 
 const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
@@ -22,7 +22,6 @@ const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
     if (!currentNav) return;
 
     const { classList } = currentNav;
-    console.log(classList);
     if (visibility) {
       // hide our nav
       classList.remove(NAV_OPEN_WIDTH);
@@ -55,7 +54,7 @@ const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
   return (
     <nav
       ref={navRef}
-      className="h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between items-center transition-width overflow-hidden sticky top-0"
+      className="h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between transition-width overflow-hidden sticky top-0"
     >
       <div>
         {/* logo */}
@@ -93,9 +92,9 @@ const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
         className="text-highlight-light dark:text-highlight-dark p-3 hover:scale-[0.98] transition self-end"
       >
         {visible ? (
-          <RiMenuFoldLine size={25} />
+          <RiMenuFoldFill size={25} />
         ) : (
-          <RiMenuUnfoldLine size={25} />
+          <RiMenuUnfoldFill size={25} />
         )}
       </button>
     </nav>

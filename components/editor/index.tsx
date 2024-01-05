@@ -16,6 +16,7 @@ import ActionButton from "../common/ActionButton";
 import ThumbnailSelector from "./ThumbnailSelector";
 
 export interface FinalPost extends SeoResult {
+  id?: string;
   title: string;
   content: string;
   thumbnail?: File | string;
@@ -161,6 +162,7 @@ const Editor: FC<Props> = ({
                 busy={busy}
                 title={btnTitle}
                 onClick={handleSubmit}
+                disabled={busy}
               />
             </div>
           </div>
